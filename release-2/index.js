@@ -1,21 +1,27 @@
 // [1,5, 2], -1 -> [5, 2, 1]
 // [1, 5, 2], 1 -> [1, 2, 5]
 
-export const sorting = () => {
-    //code here
+export const sorting = (arr, mode) => {
+    arr = mode === 1 ? arr.sort() : arr.sort().reverse()
+    console.log(arr);
 }
 
 // [{age: 15, height: 140}, {age: 14, height: 150}], age -> [{age: 14, height: 150}, {age: 15, height: 150}]
-export const deepSorting = () => {
-    //code here
+export const deepSorting = (objArr, prop) => {
+    objArr.sort((a, b) => (a[prop]> b[prop]) ? 1 : -1)
+    console.log(objArr);
 }
 
 
 
 
 // ['d', 1, 3, null] -> [1, 3]
-export const getNumbers = () => {
-    //code here
+export const getNumbers = (arr) => {
+    let newArr = [];
+    arr.forEach( item => {
+        typeof(item) === 'number' ? newArr.push(item) : item
+    } )
+    console.log(newArr);
 }
 
 
@@ -23,21 +29,22 @@ export const getNumbers = () => {
 
 // [1, 5, 34, -100] -> -100
 export const min = () => {
-    //code here
+    console.log(Math.min(...[1, 5, 34, -100]))
 }
 
 
 
 // [1, 1, 1, 3, 4, 2, 2] -> [1, 3, 4, 2]
-export const getSet = () => {
-    //code here
+export const getSet = (arr) => {
+    console.log([...new Set(arr)]);
 }
 
 
 
 // // [1, 1, 1, 3, 4, 2, 2, 2] -> [1, 2]
-export const findTheMostReapetedEls = () => {
-    //code here
+export const findTheMostReapetedEls = (arr) => {
+    arr = arr.filter((item, index) => arr.indexOf(item) !== index)
+    console.log([...new Set(arr)]);
 }
 
 
@@ -50,9 +57,10 @@ export const stack = () => {
 
 
 // 'Hi, Nikita', 'Hi' -> true
-export const checkForBadWord = () => {
-    //code here
+export const checkForBadWord = (str, badWord) => {
+   console.log(str.toLowerCase().indexOf(badWord.toLowerCase()) !== -1);
 }
+
 
 export const customSome = () => {
     //code here
