@@ -50,8 +50,15 @@ export const findTheMostReapetedEls = (arr) => {
 
 // ['[','[', ']', ']' ] -> true
 // [']', '[', ']'] -> false
-export const stack = () => {
-    //code here
+export const stack = (arr) => {
+    let count = 0
+
+    arr.forEach( item => {
+        item === '[' && count++
+        item === ']' && count--    
+    })
+    
+    count === 0 ? console.log(true) : console.log(false)
 }
 
 
@@ -62,7 +69,7 @@ export const checkForBadWord = (str, badWord) => {
 }
 
 
-export const customSome = () => {
+export const customSome = (func) => {
     //code here
 }
 
