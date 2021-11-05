@@ -1,12 +1,33 @@
-// [1,5, 2], -1 -> [5, 2, 1]
+// [1, 5, 2], -1 -> [5, 2, 1]
 // [1, 5, 2], 1 -> [1, 2, 5]
 
-export const sorting = () => {
-    //code here
+const sorting = (arr, direction) => {
+    for (let i = 0; i < arr.length; i++) {
+        if (direction === 1) { 
+            if (arr[i + 1] <= arr[i]) {
+                let temp = arr[i]
+                arr[i] = arr[i + 1]
+                arr[i + 1] = temp
+            }
+        } else if (direction === -1) {
+            if (arr[i + 1] >= arr[i]) {
+                let temp = arr[i]
+                arr[i] = arr[i + 1]
+                arr[i + 1] = temp
+            }
+        } else {
+            return 'Incorrect data was given'
+        }
+    }
+    return arr
 }
 
+console.log(sorting([1, 5, 2], -1))
+console.log(sorting([1, 5, 2], 1))
+console.log(sorting([1, 5, 2], 0))
+
 // [{age: 15, height: 140}, {age: 14, height: 150}], age -> [{age: 14, height: 150}, {age: 15, height: 150}]
-export const deepSorting = () => {
+const deepSorting = () => {
     //code here
 }
 
@@ -14,7 +35,7 @@ export const deepSorting = () => {
 
 
 // ['d', 1, 3, null] -> [1, 3]
-export const getNumbers = () => {
+const getNumbers = () => {
     //code here
 }
 
@@ -22,54 +43,54 @@ export const getNumbers = () => {
 
 
 // [1, 5, 34, -100] -> -100
-export const min = () => {
+const min = () => {
     //code here
 }
 
 
 
 // [1, 1, 1, 3, 4, 2, 2] -> [1, 3, 4, 2]
-export const getSet = () => {
+const getSet = () => {
     //code here
 }
 
 
 
 // // [1, 1, 1, 3, 4, 2, 2, 2] -> [1, 2]
-export const findTheMostReapetedEls = () => {
+const findTheMostReapetedEls = () => {
     //code here
 }
 
 
 // ['[','[', ']', ']' ] -> true
 // [']', '[', ']'] -> false
-export const stack = () => {
+const stack = () => {
     //code here
 }
 
 
 
 // 'Hi, Nikita', 'Hi' -> true
-export const checkForBadWord = () => {
+const checkForBadWord = () => {
     //code here
 }
 
-export const customSome = () => {
+const customSome = () => {
     //code here
 }
 
-export const customFind = () => {
+const customFind = () => {
 //code here
 }
 
-export const customMap = () => {
+const customMap = () => {
     //code here
 }
 
-export const customReducer = () => {
+const customReducer = () => {
     //code here
 }
 
-export const custonFilter = () => {
+const custonFilter = () => {
     //code here
 }
