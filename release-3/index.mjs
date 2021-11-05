@@ -55,8 +55,7 @@ export const parser = (objArr) => {
                             phones: phones
                         }
                     )
-
-
+                    
                 }
     
             })
@@ -69,27 +68,6 @@ export const parser = (objArr) => {
     
 }
 
-let ownerArr = parser([
-    {
-        type: 'owner',
-        name: 'Vova',
-        age: 12
-    },
-    {
-        type: 'computer',
-        name: 'someComputer',
-        oc: 'Mac',
-        owner: 'Vova'
-    },
-    {
-        type: 'phone',
-        name: 'somePhone',
-        oc: 'ios',
-        owner: 'Vova'
-    }
-])
-
-console.log(ownerArr);
 
 
 // '{name: 'Vova', age: 12, type: 'owner'}' -> {name: 'Vova', age: 12, type: 'owner'}

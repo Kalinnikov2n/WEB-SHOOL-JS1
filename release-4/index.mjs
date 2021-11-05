@@ -26,8 +26,20 @@ export const calc = () => {
 
 
 export const useMemo = (func) => {
-    let memo = {}
     
+    const res = {}
+
+    return (args) => {
+
+        argsKey = "" + args
+
+        if(!res[argsKey]) {
+            res[argsKey] = func(args)
+        }
+
+        return res[argsKey];
+
+    }
 }
 
 const cb = (num) => num + 1
