@@ -1,23 +1,23 @@
 //  'Nikita' -> 'Hi, Nikita'
-const hiFunction = () => {
-    let name = ("Sasha");
+const hiFunction = (n) => {
+    let name = (n);
     let b = ('Hi, ');
     let c = (b + name)
     console.log(c)
 }
-// hiFunction()
+hiFunction("Sasha")
 
 
 
 // 5, 6 -> 11
 // alert("123")
-const sum = () => {
-    let first = 5;
-    let second = 6;
+const sum = (a, b) => {
+    let first = a;
+    let second = b;
 let c = (first + second)
 console.log(c)
 }
-// sum()
+sum(3, 7)
 
 
 //5 -> false
@@ -43,10 +43,10 @@ const getPower = (n) => {
 }
 // getPower(6)
 
-module.exports = {
-    hiFunction()
-    sum()
-    isEven(7)
-    apples(7)
-    getPower(7)
-}
+// module.exports = {
+//     hiFunction()
+//     sum()
+//     isEven(7)
+//     apples(7)
+//     getPower(7)
+// }
