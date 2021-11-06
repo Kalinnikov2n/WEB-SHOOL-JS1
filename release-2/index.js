@@ -49,23 +49,40 @@ const getSet = (arr) => {
 console.log(getSet([1, 1, 1, 3, 4, 2, 2]))
 
 // // [1, 1, 1, 3, 4, 2, 2, 2] -> [1, 2]
-const findTheMostReapetedEls = () => {
-    //code here
+const findTheMostReapetedEls = (arr) => {
+    let newArr = []
+    arr.forEach((element, i) => {
+        element === (arr[i + 1]) ? newArr.push(element) : 1
+    });
+    return [...new Set(newArr)]
 }
 
+console.log(findTheMostReapetedEls([1, 1, 1, 3, 4, 2, 2, 2]))
 
 // ['[','[', ']', ']' ] -> true
 // [']', '[', ']'] -> false
-const stack = () => {
-    //code here
+const stack = (arr) => {
+    let countPlus = 0
+    let countMinus = 0
+    arr.forEach( element => {
+        if (element === '[') {
+            countPlus++
+        } else if (element === ']') {
+            countMinus++
+        }
+    })
+    return countPlus === countMinus
 }
 
-
+console.log(stack(['[', '[', ']', ']']))
+console.log(stack([']', '[', ']']))
 
 // 'Hi, Nikita', 'Hi' -> true
-const checkForBadWord = () => {
-    //code here
+const checkForBadWord = (str, word) => {
+    return str.indexOf(word) !== -1
 }
+
+console.log(checkForBadWord('Hi, Nikita', 'Nikita'))
 
 const customSome = () => {
     //code here
