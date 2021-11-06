@@ -1,15 +1,11 @@
 // {name: 'Lim', surname: 'Bok', age: 12} -> 'Bok Lim'
-const fullName = () => {
-    user = {
-        name: 'Lim ',
-        surname: 'Bok ',
-        age: 12,
-    }
-    let a = (user.name + user.surname)
+const fullName = (onj) => {
+   
+    let a = (onj.name + ' ' + onj.surname)
     console.log(a)
 }
 
-fullName()
+fullName( {name: 'Lim', surname: 'Bok', age: 12})
 const check = () => {
 
    
