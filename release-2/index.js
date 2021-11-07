@@ -143,26 +143,55 @@ const stack = (stackArray) => {
 }
 
 // 'Hi, Nikita', 'Hi' -> true
-const checkForBadWord = () => {
-    //code here
+const checkForBadWord = (stroke,word) => {
+    if(stroke.indexOf(word)==-1){
+        return false
+    }else{
+        return true
+    }
 }
 
-const customSome = () => {
-    //code here
+const customSome = (someArray,someCondFunc) => {
+    for(let i=0;i<someArray.length;i++){
+        if(someCondFunc(someArray[i])){
+            return true
+        }
+    }
+    return false
 }
 
-const customFind = () => {
-//code here
+const customFind = (someArray, someCondFunc) => {
+    for(let i=0;i<someArray.length;i++){
+        if(someCondFunc(someArray[i])){
+            return someArray[i]
+        }
+    }
+    return undefined
 }
 
-const customMap = () => {
-    //code here
+const customMap = (someArray, someCondFunc) => {
+    let newArray = []
+    for(let i=0;i<someArray.length;i++){
+        newArray.push(someCondFunc(someArray[i]));
+    }
+    return newArray
 }
 
-const customReducer = () => {
-    //code here
+
+const customReducer = (someArray,someCondFunc) => {
+    let result = someArray[i];
+    for(let i=0;i<someArray.length;i++){
+        someCondFunc(result,someArray[i])
+    }
+    return result
 }
 
-const custonFilter = () => {
-    //code here
+const custonFilter = (someArray, someCondFunc) => {
+    let newArray = [];
+    for(let i=0;i<someArray.length;i++){
+        if(someCondFunc(someArray[i])){
+            newArray.push(someArray[i])
+        }
+    }
+    return newArray
 }
