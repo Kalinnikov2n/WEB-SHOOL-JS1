@@ -1,75 +1,135 @@
 // [1,5, 2], -1 -> [5, 2, 1]
 // [1, 5, 2], 1 -> [1, 2, 5]
 
-export const sorting = () => {
-    //code here
+const sorting = (arr, digit=1) => {
+    let t
+    if (digit == 1) {
+        for(let i=0; i<arr.length()-1; i++) {
+            for(let j=i+1; j<arr.length(); j++)
+            {
+                if (arr[j] < arr[i]) {
+                    t = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = t;
+                }
+            }
+        }
+    }
+    if (digit == -1) {
+        for(let i=0; i<arr.length()-1; i++) {
+            for(let j=i+1; j<arr.length(); j++)
+            {
+                if (arr[j] > arr[i]) {
+                    t = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = t;
+                }
+            }
+        }
+    }
+    return (arr);
 }
 
 // [{age: 15, height: 140}, {age: 14, height: 150}], age -> [{age: 14, height: 150}, {age: 15, height: 150}]
-export const deepSorting = () => {
-    //code here
+const deepSorting = (arr, par) => {
+    let t;
+    for(let i=0; i<arr.length-1; i++){
+        for(let j=i+1; j<arr.length; j++) {
+            if (arr[j][par]<arr[i][par]) {
+                t=arr[i];
+                arr[i]=arr[j];
+                arr[j]=t;
+            }
+        }
+    }
+    return arr;
 }
 
 
 
 
 // ['d', 1, 3, null] -> [1, 3]
-export const getNumbers = () => {
-    //code here
+const getNumbers = (arr) => {
+    let new_arr = [];
+    for(let i=0; i<arr.length; i++) {
+        let t = typeof arr[i];
+        if(t == 'number')  
+            new_arr.push(arr[i]);
+    }
+    return new_arr;
 }
 
 
 
 
 // [1, 5, 34, -100] -> -100
-export const min = () => {
-    //code here
+const min = (arr) => {
+    let min_arr = arr[0];
+    for (let i=0; i<arr.length; i++) {
+        if(arr[i] < min_arr) min_arr = arr[i];
+    }
+    return min_arr;
 }
 
 
 
 // [1, 1, 1, 3, 4, 2, 2] -> [1, 3, 4, 2]
-export const getSet = () => {
-    //code here
+const getSet = (arr) => {
+    let uniq_arr = [];
+    arr = sorting(arr, 1);
+    let t;
+    for (let i=0; i<arr.length; i++) {
+        if(arr[i] != t) {
+            uniq_arr.push(arr[i]);
+            t = arr[i];
+        }
+    }
+    return uniq_arr;
 }
 
 
 
 // // [1, 1, 1, 3, 4, 2, 2, 2] -> [1, 2]
-export const findTheMostReapetedEls = () => {
-    //code here
+const findTheMostReapetedEls = (arr) => {
+    let count_arr = [];
+    let final_arr = [];
+    for(let i=0; i<arr.length; i++) count_arr.push(0);
+    for(let i=0; i<arr.length; i++) count_arr[arr[i]]++;
+    let max_el = getMaxOfArray(count_arr);
+
+    
 }
 
 
 // ['[','[', ']', ']' ] -> true
 // [']', '[', ']'] -> false
-export const stack = () => {
+const stack = () => {
     //code here
 }
 
 
 
 // 'Hi, Nikita', 'Hi' -> true
-export const checkForBadWord = () => {
+const checkForBadWord = () => {
     //code here
 }
 
-export const customSome = () => {
+const customSome = () => {
     //code here
 }
 
-export const customFind = () => {
-//code here
-}
-
-export const customMap = () => {
+const customFind = () => {
     //code here
 }
 
-export const customReducer = () => {
+const customMap = () => {
     //code here
 }
 
-export const custonFilter = () => {
+const customReducer = () => {
+    //code here
+}
+
+const custonFilter = () => {
     //code here
 }
