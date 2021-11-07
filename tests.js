@@ -180,62 +180,62 @@ const sorting = (arr, digit=1) => {
 
 //'e3' -> ['d1', 'c2', 'c4', 'd5', 'f5', 'g4', 'g2', 'f1'] 
 
-const horseSteps = (pos) => {
-    let x
-    let y
-    let desk = [['a1', 'b1', 'c1', 'd1', 'e1', 'f1', 'g1', 'h1'],
-                ['a2', 'b2', 'c2', 'd2', 'e2', 'f2', 'g2', 'h2'],
-                ['a3', 'b3', 'c3', 'd3', 'e3', 'f3', 'g3', 'h3'],
-                ['a4', 'b4', 'c4', 'd4', 'e4', 'f4', 'g4', 'h4'],
-                ['a5', 'b5', 'c5', 'd5', 'e5', 'f5', 'g5', 'h5'],
-                ['a6', 'b6', 'c6', 'd6', 'e6', 'f6', 'g6', 'h6'],
-                ['a7', 'b7', 'c7', 'd7', 'e7', 'f7', 'g7', 'h7'],
-                ['a8', 'b8', 'c8', 'd8', 'e8', 'f8', 'g8', 'h8']]
-    for(let i=0; i<desk.length; i++) {
-        for(let j=0; j<desk[i].length; j++) {
-            if(pos===desk[i][j]) {
-                x = i
-                y = j
-            }
-        }
-    }
+// const horseSteps = (pos) => {
+//     let x
+//     let y
+//     let desk = [['a1', 'b1', 'c1', 'd1', 'e1', 'f1', 'g1', 'h1'],
+//                 ['a2', 'b2', 'c2', 'd2', 'e2', 'f2', 'g2', 'h2'],
+//                 ['a3', 'b3', 'c3', 'd3', 'e3', 'f3', 'g3', 'h3'],
+//                 ['a4', 'b4', 'c4', 'd4', 'e4', 'f4', 'g4', 'h4'],
+//                 ['a5', 'b5', 'c5', 'd5', 'e5', 'f5', 'g5', 'h5'],
+//                 ['a6', 'b6', 'c6', 'd6', 'e6', 'f6', 'g6', 'h6'],
+//                 ['a7', 'b7', 'c7', 'd7', 'e7', 'f7', 'g7', 'h7'],
+//                 ['a8', 'b8', 'c8', 'd8', 'e8', 'f8', 'g8', 'h8']]
+//     for(let i=0; i<desk.length; i++) {
+//         for(let j=0; j<desk[i].length; j++) {
+//             if(pos===desk[i][j]) {
+//                 x = i
+//                 y = j
+//             }
+//         }
+//     }
     
-    if (x === 0 && y===0) return [desk[x+2][y+1], desk[x+1][y+2]]
-    else if (x === 0 && y===1) return [desk[x+2][y+1], desk[x+1][y+2], desk[x+2][y-1]]
-    else if (x === 1 && y===0) return [desk[x+2][y+1], desk[x+1][y+2], desk[x-1][y+2]]
-    else if (x === 1 && y===1) return [desk[x+2][y+1], desk[x+1][y+2], desk[x-1][y+2], desk[x+2][y-1]]
+//     if (x === 0 && y===0) return [desk[x+2][y+1], desk[x+1][y+2]]
+//     else if (x === 0 && y===1) return [desk[x+2][y+1], desk[x+1][y+2], desk[x+2][y-1]]
+//     else if (x === 1 && y===0) return [desk[x+2][y+1], desk[x+1][y+2], desk[x-1][y+2]]
+//     else if (x === 1 && y===1) return [desk[x+2][y+1], desk[x+1][y+2], desk[x-1][y+2], desk[x+2][y-1]]
 
-    else if (x === 0 && y===7) return [desk[x+2][y-1], desk[x+1][y-2]]
-    else if (x === 0 && y===6) return [desk[x+2][y-1], desk[x+1][y-2], desk[x+2][y+1]]
-    else if (x === 1 && y===7) return [desk[x-1][y-2], desk[x+2][y-1], desk[x+1][y-2]]
-    else if (x === 1 && y===6) return [desk[x+2][y+1], desk[x+1][y-2], desk[x-1][y-2], desk[x+2][y-1]]
+//     else if (x === 0 && y===7) return [desk[x+2][y-1], desk[x+1][y-2]]
+//     else if (x === 0 && y===6) return [desk[x+2][y-1], desk[x+1][y-2], desk[x+2][y+1]]
+//     else if (x === 1 && y===7) return [desk[x-1][y-2], desk[x+2][y-1], desk[x+1][y-2]]
+//     else if (x === 1 && y===6) return [desk[x+2][y+1], desk[x+1][y-2], desk[x-1][y-2], desk[x+2][y-1]]
 
-    else if (x === 7 && y===0) return [desk[x-2][y+1], desk[x-1][y+2]]
-    else if (x === 7 && y===1) return [desk[x-2][y-1], desk[x-1][y+2], desk[x-2][y+1]]
-    else if (x === 6 && y===0) return [desk[x-1][y+2], desk[x-2][y+1], desk[x+1][y+2]]
-    else if (x === 6 && y===1) return [desk[x-2][y+1], desk[x+1][y+2], desk[x-1][y+2], desk[x-2][y-1]]
+//     else if (x === 7 && y===0) return [desk[x-2][y+1], desk[x-1][y+2]]
+//     else if (x === 7 && y===1) return [desk[x-2][y-1], desk[x-1][y+2], desk[x-2][y+1]]
+//     else if (x === 6 && y===0) return [desk[x-1][y+2], desk[x-2][y+1], desk[x+1][y+2]]
+//     else if (x === 6 && y===1) return [desk[x-2][y+1], desk[x+1][y+2], desk[x-1][y+2], desk[x-2][y-1]]
 
-    else if (x === 7 && y===7) return [desk[x-2][y-1], desk[x-1][y-2]]
-    else if (x === 7 && y===6) return [desk[x-2][y-1], desk[x-1][y-2], desk[x-2][y+1]]
-    else if (x === 6 && y===7) return [desk[x-1][y-2], desk[x-2][y-1], desk[x+1][y-2]]
-    else if (x === 6 && y===6) return [desk[x-2][y+1], desk[x+1][y-2], desk[x-1][y-2], desk[x-2][y-1]]
+//     else if (x === 7 && y===7) return [desk[x-2][y-1], desk[x-1][y-2]]
+//     else if (x === 7 && y===6) return [desk[x-2][y-1], desk[x-1][y-2], desk[x-2][y+1]]
+//     else if (x === 6 && y===7) return [desk[x-1][y-2], desk[x-2][y-1], desk[x+1][y-2]]
+//     else if (x === 6 && y===6) return [desk[x-2][y+1], desk[x+1][y-2], desk[x-1][y-2], desk[x-2][y-1]]
 
-    else if((x===2 || x===3 || x===4 || x===5)&&y===0) return [desk[x+2][y+1], desk[x+1][y+2], desk[x-1][y+2], desk[x-2][y+1]]
-    else if((x===2 || x===3 || x===4 || x===5)&&y===1) return [desk[x+2][y+1], desk[x+1][y+2], desk[x-1][y+2], desk[x-2][y+1],desk[x+2][y-1],desk[x-2][y-1]]
+//     else if((x===2 || x===3 || x===4 || x===5)&&y===0) return [desk[x+2][y+1], desk[x+1][y+2], desk[x-1][y+2], desk[x-2][y+1]]
+//     else if((x===2 || x===3 || x===4 || x===5)&&y===1) return [desk[x+2][y+1], desk[x+1][y+2], desk[x-1][y+2], desk[x-2][y+1],desk[x+2][y-1],desk[x-2][y-1]]
 
-    else if((x===2 || x===3 || x===4 || x===5)&&y===7) return [desk[x-1][y-2], desk[x+2][y-1], desk[x+1][y-2], desk[x-2][y-1]]
-    else if((x===2 || x===3 || x===4 || x===5)&&y===6) return [desk[x-1][y-2], desk[x+2][y-1], desk[x+1][y-2], desk[x-2][y-1],desk[x+2][y+1],desk[x-2][y+1]]
+//     else if((x===2 || x===3 || x===4 || x===5)&&y===7) return [desk[x-1][y-2], desk[x+2][y-1], desk[x+1][y-2], desk[x-2][y-1]]
+//     else if((x===2 || x===3 || x===4 || x===5)&&y===6) return [desk[x-1][y-2], desk[x+2][y-1], desk[x+1][y-2], desk[x-2][y-1],desk[x+2][y+1],desk[x-2][y+1]]
 
-    else if (x===0 && (y===2 || y===3 || y===4 || y===5)) return [desk[x+2][y-1], desk[x+2][y+1], desk[x+1][y-2], desk[x+1][y+2]]
-    else if (x===1 && (y===2 || y===3 || y===4 || y===5)) return [desk[x+2][y-1],desk[x+2][y+1],desk[x+1][y-2],desk[x+1][y+2],desk[x-1][y-2],desk[x-1][y+2]]
+//     else if (x===0 && (y===2 || y===3 || y===4 || y===5)) return [desk[x+2][y-1], desk[x+2][y+1], desk[x+1][y-2], desk[x+1][y+2]]
+//     else if (x===1 && (y===2 || y===3 || y===4 || y===5)) return [desk[x+2][y-1],desk[x+2][y+1],desk[x+1][y-2],desk[x+1][y+2],desk[x-1][y-2],desk[x-1][y+2]]
 
-    else if (x===7 && (y===2 || y===3 || y===4 || y===5)) return [desk[x-2][y-1], desk[x-2][y+1], desk[x-1][y-2], desk[x-1][y+2]]
-    else if (x===6 && (y===2 || y===3 || y===4 || y===5)) return [desk[x-2][y-1],desk[x-2][y+1],desk[x-1][y-2],desk[x-1][y+2],desk[x+1][y-2],desk[x+1][y+2]]
+//     else if (x===7 && (y===2 || y===3 || y===4 || y===5)) return [desk[x-2][y-1], desk[x-2][y+1], desk[x-1][y-2], desk[x-1][y+2]]
+//     else if (x===6 && (y===2 || y===3 || y===4 || y===5)) return [desk[x-2][y-1],desk[x-2][y+1],desk[x-1][y-2],desk[x-1][y+2],desk[x+1][y-2],desk[x+1][y+2]]
 
-    else return [desk[x-1][y-2], desk[x+1][y-2], desk[x-1][y+2], desk[x+1][y+2], desk[x-2][y-1], desk[x+2][y-1], desk[x-2][y+1], desk[x+2][y+1]]
-}
+//     else return [desk[x-1][y-2], desk[x+1][y-2], desk[x-1][y+2], desk[x+1][y+2], desk[x-2][y-1], desk[x+2][y-1], desk[x-2][y+1], desk[x+2][y+1]]
+// }
 
-console.log(horseSteps('g4'))
+// console.log(horseSteps('g4'))
 
 // const horseSteps1 = (pos) => {
 //     let x
@@ -259,3 +259,104 @@ console.log(horseSteps('g4'))
 //     return [desk[x-1][y-2], desk[x+1][y-2], desk[x-1][y+2], desk[x+1][y+2], desk[x-2][y-1], desk[x+2][y-1], desk[x-2][y+1], desk[x+2][y+1]]
 // }
 // console.log(horseSteps1('b3'))
+
+// [1, 1, 1, 3, 4, 2, 2] -> [1, 3, 4, 2]
+
+// const getSet = (arr) => {
+//     let uniq_arr = []
+//     for(let el of arr) if(!uniq_arr.includes(el)) uniq_arr.push(el)
+//     return uniq_arr
+// }
+// console.log(getSet([1, 1, 1, 3, 4, 2, 2]))
+
+
+// const findTheMostReapetedEls = (arr) => {
+// let obj_counts = {}, max_count = 0, final_arr = []
+//     for (let el of arr) obj_counts[el] = 0
+//     for (let el of arr) obj_counts[el] += 1
+//     for (let el of arr) if (obj_counts[el]>max_count) max_count = obj_counts[el]
+//     for (let key in obj_counts) if (obj_counts[key]===max_count) final_arr.push(key)
+//     return final_arr
+// }
+// console.log(findTheMostReapetedEls([-4, -4, 0, 1]))
+
+// const checkForBadWord = (str,badword) => {
+//     return Boolean(str.indexOf(badword) + 1)
+// }
+// console.log(checkForBadWord('Hi, Nikita', 'H'))
+
+// ['[','[', ']', ']' ] -> true
+// [']', '[', ']'] -> false
+    // let arr = ['[','[', ']', ']' ] 
+    // for(let i=0; i<arr.length-1; i++) {
+    //     if(arr[i]==='[') {
+    //         for (let j=i+1; j<arr.length; j++) {
+    //             if(arr[j]===']') {
+    //                 arr[i]=0
+    //                 arr[j]=0
+    //                 break
+    //             }
+                
+    //         }
+    //     }
+    // }
+    // let g = 0
+    // for(el of arr)  {
+    //     if(el!=0)  {
+    //         console.log(false)
+    //         break
+    //     }
+    //     g+=1
+    // }
+    // if (g===arr.length) console.log(true)
+
+// const stack = (arr) => {
+//     for(let i=0; i<arr.length-1; i++) {
+//         if(arr[i]==='[') {
+//             for (let j=i+1; j<arr.length; j++) {
+//                 if(arr[j]===']') {
+//                     arr[i]=0
+//                     arr[j]=0
+//                     break
+//                 }
+                    
+//             }
+//         }
+//     }
+//     for(el of arr) if(el!=0) return false
+//     return true
+// }
+// console.log(stack([']', '[', ']']))
+
+// const customSome = (arr, func) => {
+//     for(el of arr) if(func(el)) return true
+//     return false
+    
+// }
+// console.log(customSome([1,21,3,4,5, 10], (elem => elem > 10)))
+
+// const customFind = (arr, func) => {
+//     for(el of arr) if(func(el)) return el
+//     return undefined
+// }
+// console.log(customFind([1,2,3,11,5, 12], (elem => elem > 10)))
+
+// const customMap = (arr, func) => {
+//     let new_arr = []
+//     for (el of arr) new_arr.push(func(el))
+//     return new_arr
+// }
+// console.log(customMap([2,3,6,8,4,5], (elem => elem*elem)))
+
+// const customReducer = (arr, func) => {
+//     for(i=0; i<arr.length-1; i++)
+//         arr[i+1] = arr[i+1].func(arr[i])
+//     return arr[arr.length-1]
+// }
+
+const customFilter = (arr, func) => {
+    let new_arr = []
+    for(el of arr) if(func(el)) new_arr.push(el)
+    return new_arr
+}
+console.log(customFilter([12, 5, 8, 130, 44], (elem => elem >= 10)))
