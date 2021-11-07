@@ -28,8 +28,8 @@ export const getNumbers = (arr) => {
 
 
 // [1, 5, 34, -100] -> -100
-export const min = () => {
-    console.log(Math.min(...[1, 5, 34, -100]))
+export const min = (arr) => {
+    console.log(Math.min(...arr))
 }
 
 

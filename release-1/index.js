@@ -13,7 +13,7 @@
 //0 -> true
 //4 -> true
  const isEven = (num) => {
-    num = num%2 == 0 ? true : false;
+    num = num%2 === 0;
     console.log(num);
 }
 
