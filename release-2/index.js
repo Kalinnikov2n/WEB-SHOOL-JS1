@@ -69,22 +69,58 @@ export const checkForBadWord = (str, badWord) => {
 }
 
 
-export const customSome = (func) => {
-    //code here
+export const customSome = (arr, func) => {
+    let res = []
+    arr.forEach( item => {
+        if (func(item)) res.push(true)
+    })
+
+    if (res.length) return true
+    else return false
 }
 
-export const customFind = () => {
-//code here
+export const customFind = (arr, func) => {
+    let res;
+
+    for (let i = 0; i < arr.length; i++){
+        if (func(arr[i])) {
+            res = arr[i]
+            break
+        }
+    }
+
+    return res
+    
 }
 
-export const customMap = () => {
-    //code here
+export const customMap = (arr, func) => {
+    let newArr = []
+
+    arr.forEach( item => {
+        newArr.push(func(item))
+    })
+
+    return newArr
 }
 
-export const customReducer = () => {
-    //code here
+export const customReducer = (arr , initialVal, func) => {
+    let res = initialVal;
+
+    arr.forEach( item => {
+        let currentVal = item
+        res = func(res, currentVal)
+    })
+
+    return res
+
 }
 
-export const custonFilter = () => {
-    //code here
+export const customFilter = (arr ,func) => {
+    let newArr = []
+
+    arr.forEach( item => {
+        func(item) && newArr.push(item)
+    })
+
+    return newArr
 }
