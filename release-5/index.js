@@ -47,5 +47,4 @@ const horseSteps = (pos) => {
             }
         }
     }
-    console.log(turns)
 }
