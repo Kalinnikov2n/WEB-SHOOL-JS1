@@ -43,7 +43,8 @@ console.log(parser( [{name: 'Vova', age: 12, type: 'owner'}, {type: 'computer', 
 
 // '{name: 'Vova', age: 12, type: 'owner'}' -> {name: 'Vova', age: 12, type: 'owner'}
 const createObjFromStr = (str) => {
-    return JSON.parse(str)
+    //почему со стрингифай только работает?
+    return JSON.parse(JSON.stringify(str))
 }
 
 console.log(createObjFromStr("{name: 'Vova', age: 12, type: 'owner'}"))
