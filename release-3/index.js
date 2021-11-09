@@ -1,3 +1,5 @@
+const { object } = require("underscore")
+
 // {name: 'Lim', surname: 'Bok', age: 12} -> 'Bok Lim'
 const fullName = (obj) => {
     return obj.name + ' ' + obj.surname
@@ -43,8 +45,24 @@ console.log(parser( [{name: 'Vova', age: 12, type: 'owner'}, {type: 'computer', 
 
 // '{name: 'Vova', age: 12, type: 'owner'}' -> {name: 'Vova', age: 12, type: 'owner'}
 const createObjFromStr = (str) => {
-    //почему со стрингифай только работает?
-    return JSON.parse(JSON.stringify(str))
+    str = str.slice(1, str.length - 1)
+    let lots = str.split(` `)
+    let keys = []
+    let values = []
+    let dict = {}
+    lots.forEach( (element, i) => {
+        if (element[element.length - 1] === ",") {
+        element = element.slice(0, element.length - 1)
+        }
+        element[0] === "'" ? element = element.slice(1, element.length - 1) : 1
+        element[element.length - 1] === ":" ? keys.push(element) : values.push(element)
+        }
+    )
+    keys.forEach( (key, i) => {
+        dict[key.slice(0, key.length - 1)] =  values[i]
+        }
+    )
+    return dict
 }
 
 console.log(createObjFromStr("{name: 'Vova', age: 12, type: 'owner'}"))
