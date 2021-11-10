@@ -107,28 +107,53 @@ const stack = (arr) => {
 }
 // stack(['[',']','[',']','[','['])
 
-
 // 'Hi, Nikita', 'Hi' -> true
-const checkForBadWord = () => {
-    //code here
+const checkForBadWord = (a,b) => {
+    if(a.indexOf(b,0)!==-1){
+        console.log(true)
+    } else{
+        console.log(false)
+    }
 }
-
+// checkForBadWord("ghg php","c")
 const customSome = () => {
-    //code here
+    
 }
 
-const customFind = () => {
-//code here
+const customFind = (a) => {
+    for(let i=0;i<a.length;i++){
+        if(a[i]==0){
+            console.log(a[i])
+            break
+        }
+    }
 }
 
-const customMap = () => {
-    //code here
+const customMap = (a) => {
+    for(let i=0;i<a.length;i++){
+        a[i]=func(a[i])
+    }
+    console.log(a)
 }
 
-const customReducer = () => {
-    //code here
+const customReducer = (a) => {
+    for(let i=0;i<a.length;i++){
+        if (a[i]==a[-1]){
+            a[i]=a[i]+a[i-1]
+            break
+        } else{
+            a[i]+=a[i+1]
+        }
+    }
+    return a[-1]
 }
 
-const custonFilter = () => {
-    //code here
+const custonFilter = (a) => {
+    let b=[]
+    for(let i=0;i<a.length;i++){
+        if(a[i]>0){
+            b.push(a[i])
+        }
+    }
+    console.log(b)
 }
