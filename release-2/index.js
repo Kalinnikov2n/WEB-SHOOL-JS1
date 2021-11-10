@@ -1,20 +1,35 @@
 // [1,5, 2], -1 -> [5, 2, 1]
 // [1, 5, 2], 1 -> [1, 2, 5]
 
-export const sorting = () => {
-    //code here
+const sorting = (arr,choose) => {
+    arr = arr.sort();
+    if (choose == 1) console.log(arr);
+    if (choose == -1) console.log(arr.reverse());
 }
+sorting([1,5,2],-1);
+sorting([1,5,2],1);
 
 // [{age: 15, height: 140}, {age: 14, height: 150}], age -> [{age: 14, height: 150}, {age: 15, height: 150}]
-export const deepSorting = () => {
-    //code here
+const deepSorting = (array,keyword) => {
+    let arrayLength = array.length;
+    for(let i =0;i<arrayLength;i++)
+        for(let j = 0; j < arrayLength-1; j++)
+        {
+            if(array[j][keyword] > array[j+1][keyword]){
+                let temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+        }
+    console.log(array);
 }
-
+deepSorting([{age: 15, height: 140}, {age: 14, height: 150}], "age");
+deepSorting([{age: 15, height: 140}, {age: 14, height: 150}], "height");
 
 
 
 // ['d', 1, 3, null] -> [1, 3]
-export const getNumbers = () => {
+const getNumbers = () => {
     //code here
 }
 
@@ -22,54 +37,54 @@ export const getNumbers = () => {
 
 
 // [1, 5, 34, -100] -> -100
-export const min = () => {
+const min = () => {
     //code here
 }
 
 
 
 // [1, 1, 1, 3, 4, 2, 2] -> [1, 3, 4, 2]
-export const getSet = () => {
+const getSet = () => {
     //code here
 }
 
 
 
 // // [1, 1, 1, 3, 4, 2, 2, 2] -> [1, 2]
-export const findTheMostReapetedEls = () => {
+const findTheMostReapetedEls = () => {
     //code here
 }
 
 
 // ['[','[', ']', ']' ] -> true
 // [']', '[', ']'] -> false
-export const stack = () => {
+const stack = () => {
     //code here
 }
 
 
 
 // 'Hi, Nikita', 'Hi' -> true
-export const checkForBadWord = () => {
+const checkForBadWord = () => {
     //code here
 }
 
-export const customSome = () => {
+const customSome = () => {
     //code here
 }
 
-export const customFind = () => {
+const customFind = () => {
 //code here
 }
 
-export const customMap = () => {
+const customMap = () => {
     //code here
 }
 
-export const customReducer = () => {
+const customReducer = () => {
     //code here
 }
 
-export const custonFilter = () => {
+const custonFilter = () => {
     //code here
 }
