@@ -84,22 +84,44 @@ const checkForBadWord = (str, word) => {
 
 console.log(checkForBadWord('Hi, Nikita', 'Nikita'))
 
-const customSome = () => {
-    //code here
+const customSome = (arr, cond) => {
+    array.forEach(element => {
+        if (cond(element)) {
+            return true
+        }
+    });
+    return false
 }
 
-const customFind = () => {
-//code here
+const customFind = (arr, func) => {
+    arr.forEach(element => {
+        if (func(element)) {
+            return element
+        }
+    })
+    return undefined
 }
 
-const customMap = () => {
-    //code here
+const customMap = (arr, func) => {
+    let newArr = []
+    arr.forEach(element => {
+        newArr.push(func(element))
+    });
+    return newArr
 }
 
-const customReducer = () => {
-    //code here
+const customReducer = (arr, func, previousValue) => {
+    let res = previousValue
+    arr.forEach(element => {
+        res = func(res, element)
+    });
+    return res
 }
 
-const custonFilter = () => {
-    //code here
+const customFilter = (arr, func) => {
+    let newArr = []
+    arr.forEach(element => {
+        func(element) ? newArr.push(element) : 1
+    });
+    return newArr
 }
