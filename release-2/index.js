@@ -15,7 +15,9 @@ const sorting = (a, n) => {
 // [{age: 15, height: 140}, {age: 14, height: 150}], age -> [{age: 14, height: 150}, {age: 15, height: 150}]
 const deepSorting = (arr, atr) => {
     arr.sort((a, b) => (a.atr> b.atr) ? 1 : -1);
-    console.log(arr);
+    arr.forEach(element => {console.log(element)
+        
+    });
     
     }
     // deepSorting([{age: 15, height: 140}, {age: 14, height: 150}], "age")
@@ -105,7 +107,7 @@ const checkForBadWord = (str, rw) => {
    } else a = 1
     console.log(Boolean(a))
 }
-checkForBadWord('Hi, Nikita', 'Hi')
+// checkForBadWord('Hi, Nikita', 'Hi')
 
 const customSome = () => {
     //code here
