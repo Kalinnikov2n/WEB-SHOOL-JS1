@@ -1,6 +1,6 @@
 // {name: 'Lim', surname: 'Bok', age: 12} -> 'Bok Lim'
-export const fullName = () => {
-    //code here
+const fullName = (obj) => {
+    return(obj.surname+" "+obj.name)
 }
 
 
@@ -8,16 +8,18 @@ export const fullName = () => {
 // {key: 5}, 'key' -> true
 // {key: null}, 'key' -> false
 
-export const checkForPropertyAndValue = () => {
-    //code here
+const checkForPropertyAndValue = (obj, key) => {
+    if(key in obj && obj[key]>0) return true
+    return false
 }
 
 // [{name: 'Vova', age: 12, type: 'owner'}, {type: 'computer', owner: 'Vova', name: 'computerName', oc: 'Mac'}, {type: 'phone', name: 'phoneName', owner: 'Vova', oc: 'ios'}] -> [{name: 'Vova', computers: [{ name: 'computerName', oc: 'Mac'}], phones: [{name: 'phoneName', oc: 'ios'}] }]
-export const parser = () => {
+const parser = () => {
     //code here
 }
 // '{name: 'Vova', age: 12, type: 'owner'}' -> {name: 'Vova', age: 12, type: 'owner'}
-export const createObjFromStr = () => {
-    //code here
+const createObjFromStr = (obj) => {
+    var a = eval('({obj:[' + str + ']})');
+    return a
 }
 

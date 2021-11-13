@@ -19,8 +19,10 @@
 
 
 // 2 -> i have 2 apples
- const apples = (entity) => {
-    return("i have " + " " + entity + " " + "apples")
+const apples = (entity) => {
+    if (entity === 1) return ("i have" + " " + entity + " " + "apple")
+    else if (entity < 0) return ("entity < 0 ((( restart the program")
+    return("i have" + " " + entity + " " + "apples")
 }
 // 4 -> 16
  const getPower = (number) => {

@@ -354,9 +354,98 @@ const sorting = (arr, digit=1) => {
 //     return arr[arr.length-1]
 // }
 
-const customFilter = (arr, func) => {
-    let new_arr = []
-    for(el of arr) if(func(el)) new_arr.push(el)
-    return new_arr
+// const customFilter = (arr, func) => {
+//     let new_arr = []
+//     for(el of arr) if(func(el)) new_arr.push(el)
+//     return new_arr
+// }
+// console.log(customFilter([12, 5, 8, 130, 44], (elem => elem >= 10)))
+
+// {name: 'Lim', surname: 'Bok', age: 12} -> 'Bok Lim'
+// const fullName = (obj) => {
+//     return(obj.surname+" "+obj.name)
+// }
+// console.log(fullName({name: 'Lim', surname: 'Bok', age: 12}))
+
+// const checkForPropertyAndValue = (obj, key) => {
+//     if(key in obj && obj[key]>0) return true
+//     return false
+// }
+// console.log(checkForPropertyAndValue({key:-9}, 'key'))
+
+// const createObjFromStr = (obj) => {
+//     var a = eval('obj');
+//     return a
+// }
+// console.log(typeof(createObjFromStr("{name: 'Vova', age: 12, type: 'owner'}")))
+
+// const apples = (entity) => {
+//     if (entity === 1) return ("i have" + " " + entity + " " + "apple")
+//     else if (entity < 0) return ("entity < 0 ((( restart the program")
+//     return("i have" + " " + entity + " " + "apples")
+// }
+// console.log(apples(10))
+
+// let a = [1,2,3]
+// console.log(a.indexOf(1))
+
+// const calc = () => {
+//     let a 
+//     let op
+//     return function (arg) { 
+//     let operators = ['+', '-', '/', '*']
+//     if (!(operators.indexOf(arg) + 1)) {
+//             if (a === undefined) a = arg
+//             else {
+//                 if (op=='+') a+=arg
+//                 if (op=='-') a-=arg
+//                 if (op=='/') a/=arg
+//                 if (op=='*') a*=arg
+//             }
+//             return a
+//     }
+//     else {
+//         op = arg 
+//         return ("Введите значение следующего аргумента выражения!")
+//     }
+// }
+// }
+
+// const myCalc = calc()
+// myCalc(5)
+// myCalc('+')
+// myCalc(3)
+// myCalc('/')
+// console.log(myCalc(4))
+// console.log(myCalc('*'))
+// console.log(myCalc(-3))
+
+// function a (name, surname) {
+//     let arr = []
+//     for (let i=0; i<arguments.length; i++) arr.push(arguments[i])
+//     return arr
+// }
+// console.log(a('Denis', 'Morozov'))
+
+const useMemo = (func) => { // Рассмотрен случай, когда функция func, передаваемая в качестве аргумента ф-ции useMemo, получает на вход лишь один аргумент
+    let Res = {}
+    let Args = []
+    return function () {
+            curArg = arguments[0]
+            for(let i=0; i<Args.length; i++)
+                if(Args[i]===curArg) return Res[curArg]
+            Args.push(curArg)
+            Res[curArg] = func(curArg)
+            return Res[curArg]
+            }
 }
-console.log(customFilter([12, 5, 8, 130, 44], (elem => elem >= 10)))
+
+
+const cb = (num) => num + 1
+const func = useMemo(cb)
+console.log(func(1)) //cb вызовется и вернет резульат 2
+console.log(func(1)) //cb не вызовется и вернет резульат 2
+console.log(func(0))
+console.log(func(0))
+console.log(func(0))
+console.log(func(-6))
