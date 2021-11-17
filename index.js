@@ -1,107 +1,64 @@
-// [1,5, 2], -1 -> [5, 2, 1]
-// [1, 5, 2], 1 -> [1, 2, 5]
+// {name: 'Lim', surname: 'Bok', age: 12} -> 'Bok Lim'
 
-
-const sorting = (array, s) => {
-    if (s===1) {
-        array.sort ();
-        console.log(array);
-        }
-    else if (s===-1) {
-        array.sort ();
-        array.reverse ();
-        console.log(array);
-    }
+let person = {
+    name: 'Lim', 
+    surname: 'Bok', 
+    age: 12,
 }
 
-sorting ([1, 5, 2], -1)
-
-// [{age: 15, height: 140}, {age: 14, height: 150}], age -> [{age: 14, height: 150}, {age: 15, height: 150}]
-
-let obj1 = { age: 15, height: 140 }
-let obj2 = { age: 14, height: 150 }
-
-const deepSorting = (array) => {
-    array.sort ((a, b) => a.age > b.age ? 1 : -1);
-    console.log(array.sort () );
-    };
-
-deepSorting (
-    [   {age: 15, height: 140}, 
-        {age: 14, height: 150}  ]
-    )
-
-// ['d', 1, 3, null] -> [1, 3]
-const getNumbers = (array) => {
-    let result = array.filter (Number)
-    console.log(result);
+const fullName = () => {
+    let full = person.name + ' ' + person.surname
+    console.log(full);
 }
 
-getNumbers (['d', 1, 3, null])
+fullName ();
+
+// {key: 5}, 'key2' -> false
+// {key: 5}, 'key' -> true
+// {key: null}, 'key' -> false
 
 
-// [1, 5, 34, -100] -> -100
-const min = (array) => {
-    console.log(Math.min.apply (0, array));
+
+const checkForPropertyAndValue = (obj, key) => {
+    let result = obj.hasOwnProperty (key);
+    obj.key <= 0 ? console.log (false) : console.log (true); 
 }
 
-min ([1, 5, 34, -100]);
+checkForPropertyAndValue ({key: null}, 'key')
 
-// [1, 1, 1, 3, 4, 2, 2] -> [1, 3, 4, 2]
-const getSet = (array) => {
-    let result = new Set (array);
-    console.log(result);
+// [{name: 'Vova', age: 12, type: 'owner'}, {type: 'computer', owner: 'Vova', name: 'computerName', oc: 'Mac'}, {type: 'phone', name: 'phoneName', owner: 'Vova', oc: 'ios'}] -> [{name: 'Vova', computers: [{ name: 'computerName', oc: 'Mac'}], phones: [{name: 'phoneName', oc: 'ios'}] }]
+
+let vova = {    
+    name: 'Vova', 
+    age: 12, 
+    type: 'owner',   
 }
 
-getSet ([1, 1, 1, 3, 4, 2, 2])
-
-// // [1, 1, 1, 3, 4, 2, 2, 2] -> [1, 2]
-const findTheMostReapetedEls = () => {
-    //code here
+let computer = {
+    type: 'computer', 
+    owner: 'Vova', 
+    name: 'computerName', 
+    oc: 'Mac',
 }
 
-
-// ['[','[', ']', ']' ] -> true
-// [']', '[', ']'] -> false
-const stack = (array) => {
-    let stack = [array];
-    for (let symbol of array) {
-        if (symbol === '(') {
-        stack.push (symbol) }
-        else if (symbol === ')') {
-            stack.pop(symbol)
-            }
-        }
-    stack.isEmpty ? console.log(true) : console.log(false);;
-    }
-   
-
-stack ([']', '[', ']'])
-
-// 'Hi, Nikita', 'Hi' -> true
-const checkForBadWord = (str, word) => {
-    let result = str.match (word) 
-    result === null ? console.log(false) : console.log(true);
+let phone = {
+    type: 'phone', 
+    name: 'phoneName', 
+    owner: 'Vova', 
+    oc: 'ios',
 }
 
-checkForBadWord ('Nikita', 'Hi')
-
-const customSome = () => {
-    
+const parser = () => {
+    vova.computer = computer;
+    vova.phone = phone;
+    console.log(vova);
 }
 
-const customFind = () => {
-    
+parser ();
+
+// '{name: 'Vova', age: 12, type: 'owner'}' -> {name: 'Vova', age: 12, type: 'owner'}
+const createObjFromStr = (str) => {
+    console.log (eval ('object =' + str));
 }
 
-const customMap = () => {
-    //code here
-}
-
-const customReducer = () => {
-    //code here
-}
-
-const custonFilter = () => {
-    //code here
-}
+createObjFromStr ('{name: 'Vova', age: 12, type: 'owner'}')
