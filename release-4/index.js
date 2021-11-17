@@ -1,5 +1,5 @@
 
- const calc = () => {
+ const calc = (znak) => {
     if ( typeof x == 'number'){
         if (znak != null){
             if (znak == "+"){
