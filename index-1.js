@@ -3,7 +3,7 @@
     let name = 'Nikita'
     return ('hi,' +name)
 }
-console.log(hiFunction())
+
 
 // 5, 6 -> 11
  const sum = (a, b) => {
@@ -11,7 +11,7 @@ console.log(hiFunction())
    b = 6
    return a + b
 }
-console.log(sum())
+
 
 
 //5 -> false
@@ -28,7 +28,7 @@ console.log(sum())
     a = 2
     return (`i have ${a} apples`)
 }
-console.log(apples())
+
 
 
 // 4 -> 16
@@ -36,7 +36,7 @@ console.log(apples())
     a = 4
     return Math.pow(a, 2)
 }
-console.log(getPower())
+
 
 module.exports = {
     hiFunction,

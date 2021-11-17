@@ -104,8 +104,8 @@ const checkForBadWord = (str, name) => {
         } else {
             return false;
         }
-    });
-    console.log(customSome);
+    })
+    
 
 
 
@@ -113,13 +113,13 @@ const checkForBadWord = (str, name) => {
     let customFind = myArray.find(function (el) {
         return el > 0;
     })
-    console.log(customFind)
+    
 
     let names = ['Nikita', 'Max', 'Ann']; //поиск количества символов
     let customMap = names.map(function(name) {
       return name.length;
     })
-    console.log(customMap); 
+    
 
     const numbers = [1, 2, 3]; //поиск среднего числа 
     const customReduce = numbers.reduce((total, amount, index, array) => {
@@ -129,12 +129,12 @@ const checkForBadWord = (str, name) => {
       }else { 
         return total;
       }
-    });
-    console.log(customReduce)
+    })
+   
 
     let lastArray = [5, -5, 8, 300, 45, 4]; //фильтруем массив и оставляем числа < 10
     let customFilter = lastArray.filter(function checkNumber(currentValue) {
         return currentValue < 10;
       }
     )
-    console.log(customFilter)
+    
