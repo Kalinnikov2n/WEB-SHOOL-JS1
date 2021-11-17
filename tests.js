@@ -427,25 +427,184 @@ const sorting = (arr, digit=1) => {
 // }
 // console.log(a('Denis', 'Morozov'))
 
-const useMemo = (func) => { // Рассмотрен случай, когда функция func, передаваемая в качестве аргумента ф-ции useMemo, получает на вход лишь один аргумент
-    let Res = {}
-    let Args = []
-    return function () {
-            curArg = arguments[0]
-            for(let i=0; i<Args.length; i++)
-                if(Args[i]===curArg) return Res[curArg]
-            Args.push(curArg)
-            Res[curArg] = func(curArg)
-            return Res[curArg]
-            }
+// const useMemo = (func) => { // Рассмотрен случай, когда функция func, передаваемая в качестве аргумента ф-ции useMemo, получает на вход лишь один аргумент
+//     let Res = {} // {arg:func(arg)}
+//     let Args = []
+//     return function () {
+//             curArg = arguments[0]
+//             for(let i=0; i<Args.length; i++)
+//                 if(Args[i]===curArg) return (Res[curArg] + "!")
+//             Args.push(curArg)
+//             Res[curArg] = func(curArg)
+//             return Res[curArg]
+//             }
+// }
+
+
+// const cb = (num) => num + 1
+// const func = useMemo(cb)
+// console.log(func(1)) //cb вызовется и вернет резульат 2
+// console.log(func(1)) //cb не вызовется и вернет резульат 2
+// console.log(func(0))
+// console.log(func(0))
+// console.log(func(0))
+// console.log(func(-6)) 
+
+// obj = {type:'computer'}
+// console.log(obj.type+'s')
+
+// const parser = (arrObjs) => {
+//     let finalArr = []
+//     let t
+//     for(obj of arrObjs) {
+//         if(obj.type==='owner') {
+//             delete obj.type
+//             finalArr.push(obj)
+//         }
+//     }
+//     for (obj of arrObjs) {
+//         if(obj.type!='owner') {
+//             t = obj.type + 's'
+//             for(human of finalArr) {
+//                 if(obj.owner==human.name) {
+//                     human[t] = []
+//                 }
+//             }   
+//         }
+//     }
+//     for(obj of arrObjs) {
+//         if(obj.type != 'owner') {
+//             t = obj.type + 's'
+//             delete obj.type
+//             for(human of finalArr) {
+//                 if(obj.owner==human.name) {
+//                     delete obj.owner
+//                     human[t].push(obj)
+//                 }
+//         }
+//     }
+// }
+//  return finalArr
+// }
+// console.log(parser([
+//     {
+//         type: 'owner',
+//         name: 'Vova',
+//         age: 12
+//     },
+//     {
+//         type: 'computer',
+//         name: 'someComputer',
+//         oc: 'Mac',
+//         owner: 'Vova'
+//     },
+//     {
+//         type: 'computer',
+//         name: 'someComputer',
+//         oc: 'Mac',
+//         owner: 'Vova'
+//     },
+//     {
+//         type: 'phone',
+//         name: 'somePhone',
+//         oc: 'ios',
+//         owner: 'Vova'
+//     },
+//     {
+//         type: 'owner',
+//         name: 'Den4ik',
+//         age: 11
+//     },
+//     {
+//         type: 'computer',
+//         name: 'someComputer',
+//         oc: 'Mac',
+//         owner: 'Den4ik',
+        
+//     },
+//     {
+//         type: 'computer',
+//         name: 'someComputer',
+//         oc: 'Mac',
+//         owner: 'Den4ik'
+//     },
+//     {
+//         type: 'phone',
+//         name: 'somePhone',
+//         oc: 'ios',
+//         owner: 'Den4ik'
+//     }]))
+
+// let a = parser([
+//     {
+//         type: 'owner',
+//         name: 'Vova',
+//         age: 12
+//     },
+//     {
+//         type: 'computer',
+//         name: 'someComputer',
+//         oc: 'Mac',
+//         owner: 'Vova'
+//     },
+//     {
+//         type: 'computer',
+//         name: 'someComputer',
+//         oc: 'Mac',
+//         owner: 'Vova'
+//     },
+//     {
+//         type: 'phone',
+//         name: 'somePhone',
+//         oc: 'ios',
+//         owner: 'Vova'
+//     },
+//     {
+//         type: 'owner',
+//         name: 'Den4ik',
+//         age: 11
+//     },
+//     {
+//         type: 'computer',
+//         name: 'someComputer',
+//         oc: 'Mac',
+//         owner: 'Den4ik',
+        
+//     },
+//     {
+//         type: 'computer',
+//         name: 'someComputer',
+//         oc: 'Mac',
+//         owner: 'Den4ik'
+//     },
+//     {
+//         type: 'phone',
+//         name: 'somePhone',
+//         oc: 'ios',
+//         owner: 'Den4ik'
+//     }])
+
+//     console.log(a[1].computers)
+
+
+// let m = {computers:[0]}
+// let obj = {type:1}
+// m.computers[0] = obj
+// console.log(m)
+
+// '{name: 'Vova', age: 12, type: 'owner'}' -> {name: 'Vova', age: 12, type: 'owner'}
+const createObjFromStr = (str) => {
+    let strObj = {}, arrStr = [], newStr, key, value
+    if(str[0] != '{' || str.slice(-1) != '}') return 'ERROR'
+    newStr = str.slice(1, -1)
+    arrStr = newStr.split(', ')
+    for(el of arrStr) {
+        if(!(el.includes(":"))) {
+            return "ERROR"
+        }
+        [key, value] = el.split(": ")
+        strObj[key] = value.replace(/[^a-zа-яё0-9\s]/gi, '')
+    }
+    return strObj
 }
-
-
-const cb = (num) => num + 1
-const func = useMemo(cb)
-console.log(func(1)) //cb вызовется и вернет резульат 2
-console.log(func(1)) //cb не вызовется и вернет резульат 2
-console.log(func(0))
-console.log(func(0))
-console.log(func(0))
-console.log(func(-6))
+console.log(createObjFromStr("{name: 'Vova', age: 12, type: 'owner'}"))
