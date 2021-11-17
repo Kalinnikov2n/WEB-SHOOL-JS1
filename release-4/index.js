@@ -35,7 +35,7 @@ const useMemo = (func) => { // Рассмотрен случай, когда ф�
     return function () {
             curArg = arguments[0]
             for(let i=0; i<Args.length; i++)
-                if(Args[i]===curArg) return Res[curArg]
+                if(Args[i]===curArg) return (Res[curArg] + "(repeated)")
             Args.push(curArg)
             Res[curArg] = func(curArg)
             return Res[curArg]

@@ -593,18 +593,84 @@ const sorting = (arr, digit=1) => {
 // console.log(m)
 
 // '{name: 'Vova', age: 12, type: 'owner'}' -> {name: 'Vova', age: 12, type: 'owner'}
-const createObjFromStr = (str) => {
-    let strObj = {}, arrStr = [], newStr, key, value
-    if(str[0] != '{' || str.slice(-1) != '}') return 'ERROR'
-    newStr = str.slice(1, -1)
-    arrStr = newStr.split(', ')
-    for(el of arrStr) {
-        if(!(el.includes(":"))) {
-            return "ERROR"
-        }
-        [key, value] = el.split(": ")
-        strObj[key] = value.replace(/[^a-zа-яё0-9\s]/gi, '')
-    }
-    return strObj
+// const createObjFromStr = (str) => {
+//     let strObj = {}, arrStr = [], newStr, key, value, counter = 0
+//     if(str[0] != '{' || str.slice(-1) != '}') return ('ERROR')
+//     newStr = str.slice(1, -1)
+//     arrStr = newStr.split(', ')
+//     for(el of arrStr) {
+//         for(char of el) {
+//             if(char==':') {
+//                 counter++
+//             }
+//         }
+//         if(counter!=1) {
+//             return ("ERROR")
+//         }
+//         counter = 0
+//     }
+//     for(el of arrStr) {
+//         if(!(el.includes(":"))) {
+//             return ("ERROR")
+//         }
+//         [key, value] = el.split(": ")
+//         strObj[key] = value.replace(/[^a-zа-яё0-9\s]/gi, '')
+//     }
+//     return strObj
+// }
+// console.log(createObjFromStr("{name: 'Vova', age: 12, type: 'owner'}"))
+
+// let counter = 0
+// let str = "{name: 'Vova', age: 12, type: 'owner'}"
+// for(el of str) {
+//     if(el==':') {
+//         counter++
+//     }
+// }
+// console.log(counter)
+
+// const useMemo = (func) => { // Рассмотрен случай, когда функция func, передаваемая в качестве аргумента ф-ции useMemo, получает на вход лишь один аргумент
+//     let Res = new Map()
+//     let Args = []
+//     return function () {
+//             let curArgs = []
+//             for(let i=0; i<arguments.length; i++) {
+//                 curArgs.push(arguments[i])
+//             }
+//             for(let i=0; i<Args.length; i++) {
+//                 if(Args[i]===curArgs) {
+//                     return (Res.get(curArgs) + "(repeated)")
+//                 }
+//             }
+//             Args.push(curArgs)
+//             Res.set(curArgs, func(arguments))
+//             return Res.get(curArgs)
+//             }
+// }
+// const cb = (num) => num + 1
+// const func = useMemo(cb)
+// console.log(func(1)) //cb вызовется и вернет резульат 2
+// console.log(func(1)) //cb не вызовется и вернет резульат 2
+
+const useMemo = (func) => { // Рассмотрен случай, когда функция func, передаваемая в качестве аргумента ф-ции useMemo, получает на вход лишь один аргумент
+    let Res = {}
+    let Args = []
+    return function () {
+            curArg = arguments[0]
+            for(let i=0; i<Args.length; i++)
+                if(Args[i]===curArg) return (Res[curArg] + "(repeated)")
+            Args.push(curArg)
+            Res[curArg] = func(curArg)
+            return Res[curArg]
+            }
 }
-console.log(createObjFromStr("{name: 'Vova', age: 12, type: 'owner'}"))
+
+const cb = (num) => num + 1
+const func = useMemo(cb)
+console.log(func(1)) //cb вызовется и вернет резульат 2
+console.log(func(1)) //cb не вызовется и вернет резульат 2
+console.log(func(0)) 
+console.log(func(0)) 
+console.log(func(3))
+console.log(func(0)) 
+console.log(func(0)) 
