@@ -1,31 +1,57 @@
 //  'Nikita' -> 'Hi, Nikita'
- const hiFunction = () => {
-    //code here
-}
+ const hiFunction = (a) => {
+   
+    console.log("Hi " +a);
+    }
+    hiFunction("Lera")
+
 
 
 // 5, 6 -> 11
- const sum = () => {
-    //code here
-}
 
+ const sum = (x,y) => {
+     console.log(x+y);
+} 
+sum(5,6);
+
+
+
+
+//code here
 
 //5 -> false
 //0 -> true
 //4 -> true
- const isEven = () => {
-    //code here
+
+ function isEven(x) {
+  if (x%2==0){
+      console.log(true)
+  }
+  else{
+      console.log(false)
+  }
 }
+isEven(5);
+
 
 
 // 2 -> i have 2 apples
- const apples = () => {
-    //code here
+ const apples = (x) => {
+  if(x>1){
+      console.log("I have " + x + " apples")
+  }  
+else{
+    console.log("I have " + x + " apple")
+}  
 }
+apples(2);
+
+
 // 4 -> 16
- const getPower = () => {
-    //code here
+ const getPower = (x) => {
+ console.log(x*x)
 }
+getPower(4);
 
 module.exports = {
     hiFunction,
