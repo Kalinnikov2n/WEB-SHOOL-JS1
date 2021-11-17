@@ -23,6 +23,7 @@ const calc = () => {
     }
 }
 
+
 // const myCalc = calc()
 // myCalc(5)
 // myCalc('+')
@@ -33,10 +34,10 @@ const calc = () => {
 
 const useMemo = (func) => {
     let result;
-    return elements {
+    return (elements) => {
         elKey = '' + elements;
         if (!result[elKey]){
-            result[elKey] = func(elements)
+            result[elKey] = func(elements);
         }
         return result[elKey];
     }
