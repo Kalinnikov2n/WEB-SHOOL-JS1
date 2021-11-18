@@ -1,7 +1,28 @@
 
-export const calc = () => {
-    //code here
+const calc = () => {
+    var a;
+    var b;
+
+    return function(argument) {
+        var func = ['*', '/', '-', '+'];
+        if (func.indexOf(argument) + 1){
+            if (a === undefined)
+            a = argument
+            else{
+                if (func = '+') a+=argument;
+                if (func = '*') a*=argument;
+                if (func = '/') a/=argument;
+                if (func = '-') a-=argument;
+            }
+            return a
+        }
+        else{
+            a = argument;
+            return a
+        }
+    }
 }
+
 
 // const myCalc = calc()
 // myCalc(5)
@@ -11,6 +32,13 @@ export const calc = () => {
 // myCalc(4)
 // 2
 
-export const useMemo = () => {
-    //code here
+const useMemo = (func) => {
+    let result;
+    return (elements) => {
+        elKey = '' + elements;
+        if (!result[elKey]){
+            result[elKey] = func(elements);
+        }
+        return result[elKey];
+    }
 }
