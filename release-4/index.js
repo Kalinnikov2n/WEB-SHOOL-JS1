@@ -1,16 +1,37 @@
+const calc = () => 
+{
+    let mathExpression = [];
 
-export const calc = () => {
-    //code here
-}
+    return (arg) => {
+        mathExpression += arg;
 
-// const myCalc = calc()
-// myCalc(5)
-// myCalc('+')
-// myCalc(3)
-// myCalc('/')
-// myCalc(4)
+        if ( typeof(arg) === 'number' )
+            mathExpression = eval(mathExpression)
+        //console.log(mathExpression);
+        return mathExpression;
+    }
+} 
+
+const myCalc = calc()
+myCalc(5)
+myCalc('+')
+myCalc(3)
+myCalc('/')
+console.log (myCalc(4));
 // 2
 
-export const useMemo = () => {
-    //code here
+const useMemo = (func) => {
+    var rememberFunc = [];
+    return function(arg){
+        if(rememberFunc[arg]){
+            return(rememberFunc[arg]);
+        }else{
+            rememberFunc[arg]=func(arg);
+            return(rememberFunc[arg]);
+        }
+    }
 }
+const cb = (num) => num + 1
+const func = useMemo(cb)
+console.log(func(1))
+console.log(func(1))
